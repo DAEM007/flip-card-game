@@ -18,6 +18,10 @@ body {
   height: 70vh;
 }
 
+.score {
+  margin-bottom: 0.5rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
