@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   shuffle();
 
-  // Get board reference
+  // Get DOM reference
   const grid = document.querySelector(".grid");
   const resultDisplay = document.querySelector(".result");
 
