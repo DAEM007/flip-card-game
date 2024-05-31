@@ -63,11 +63,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Get DOM reference
   const grid = document.querySelector(".grid");
-  const resultDisplay = document.querySelector(".result");
+  const scoreDisplay = document.querySelector(".result");
+  const finalResult = document.querySelector(".score");
+  const playerName = document.querySelector(".player-name");
 
   let cardsChosen = [];
   let cardsChosenId = [];
   let cardsWon = [];
+
+  // welcome player
+  let name = prompt("Welcome, Please enter your name:");
+  function welcomePlayer() {
+    if (name) {
+      playerName.textContent = `Welcome, ${name} 🎉✨`;
+    } else {
+      playerName.textContent = `Welcome, Flip Ninja 🎉✨`;
+    }
+  }
 
   //   create board
   function createBoard() {
@@ -85,11 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll("img");
     let optionOneId = cardsChosenId[0];
     let optionTwoId = cardsChosenId[1];
-
-    console.log(optionOneId);
-    console.log(optionTwoId);
-    console.log(cardsChosen[0]);
-    console.log(cardsChosen[1]);
 
     if (optionOneId === optionTwoId) {
       cards[optionOneId].setAttribute("src", "./images/blank.png");
@@ -110,9 +117,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cardsChosen = [];
     cardsChosenId = [];
-    resultDisplay.textContent = cardsWon.length;
+    scoreDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardArray.length / 2) {
-      resultDisplay.textContent = "Congratulations! You have found all match";
+      finalResult.textContent = `Congratulations! ${name} You have found all match`;
     }
   }
 
@@ -127,5 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  welcomePlayer();
   createBoard();
 });
